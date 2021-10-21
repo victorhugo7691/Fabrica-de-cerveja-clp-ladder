@@ -1,0 +1,67 @@
+(* line 0001 *)
+ld opened_contact Botao_Liga
+and closed_contact dispenser
+function_block IEC61131.TON.TON_1 ( time#2s MTON )
+out_end coil Esteira
+END_LINE
+
+(* line 0002 *)
+ld opened_contact Esteira
+and closed_contact Rele_Termico
+and closed_contact Botao_Desliga
+out_end coil ContK1
+END_LINE
+
+(* line 0003 *)
+ld opened_contact Esteira
+and closed_contact Rele_Termico
+and closed_contact Botao_Desliga
+and closed_contact ContK2
+out_end coil ContK3
+END_LINE
+
+(* line 0004 *)
+ld opened_contact ContK1
+function_block IEC61131.TON.TON_2 ( Time#2S Tempo )
+out_end coil ContK2
+END_LINE
+
+(* line 0005 *)
+ld opened_contact ContK2
+and closed_contact sensorE1
+function_block IEC61131.TON.TON_3 ( Time#1s MTP )
+out_end coil misturador
+END_LINE
+
+(* line 0006 *)
+ld opened_contact Liga_etapa2
+and opened_contact misturador
+and closed_contact sensorE2
+function_block IEC61131.TON.TON_4 ( Time#1s MTPT )
+out_end coil prensa
+END_LINE
+
+(* line 0007 *)
+ld opened_contact prensa
+function_block IEC61131.TON.TON_6 ( Time#2s tempo1 )
+out_end coil granulometria
+END_LINE
+
+(* line 0008 *)
+ld opened_contact granulometria
+function_block IEC61131.TON.TON_7 ( Time#2s tempo2 )
+out_end coil pintura
+END_LINE
+
+(* line 0009 *)
+ld opened_contact pintura
+function_block IEC61131.TON.TON_8 ( Time#2s tempo3 )
+out_end coil forno
+END_LINE
+
+(* line 0010 *)
+ld opened_contact forno
+function_block IEC61131.TON.TON_5 ( Time#2s tempo4 )
+out_end coil dispenser
+END_LINE
+
