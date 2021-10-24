@@ -7,48 +7,54 @@ out_end coil germinacao
 END_LINE
 
 (* line 0002 *)
-ld opened_contact germinacao
+ld closed_contact germinacao
+and opened_contact germinacao
 function_block IEC61131.TON.TON1 ( Time#1s Tempo )
 out_end coil secagem
 END_LINE
 
 (* line 0003 *)
 ld opened_contact secagem
+out_end coil germinacao
+END_LINE
+
+(* line 0004 *)
+ld opened_contact secagem
 function_block IEC61131.TON.TON2 ( Time#1s MTP )
 out_end coil misturador
 END_LINE
 
-(* line 0004 *)
+(* line 0005 *)
 ld opened_contact misturador
 function_block IEC61131.TON.ProducaoDoMosto ( Time#8s MTPT )
 out_end coil filtro
 END_LINE
 
-(* line 0005 *)
+(* line 0006 *)
 ld opened_contact filtro
 function_block IEC61131.TON.TON3 ( Time#2s tempo1 )
 out_end coil arrefecimento
 END_LINE
 
-(* line 0006 *)
+(* line 0007 *)
 ld opened_contact arrefecimento
 function_block IEC61131.TON.TON4 ( Time#2s tempo2 )
 out_end coil fermentacao
 END_LINE
 
-(* line 0007 *)
+(* line 0008 *)
 ld opened_contact fermentacao
 function_block IEC61131.TON.TON5 ( Time#6s tempo3 )
 out_end coil repouso
 END_LINE
 
-(* line 0008 *)
+(* line 0009 *)
 ld opened_contact repouso
 function_block IEC61131.TON.TinasDeRepouso ( Time#2s tempo4 )
 out_end coil engarrafamento
 END_LINE
 
-(* line 0009 *)
+(* line 0010 *)
 ld opened_contact engarrafamento
 function_block IEC61131.TON.TON6 ( Time#2s tempo5 )
 out_end coil CervejaEngarrafada
