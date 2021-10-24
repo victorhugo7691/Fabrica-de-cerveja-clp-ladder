@@ -1,18 +1,20 @@
 (* line 0001 *)
 ld opened_contact Botao_Liga
-function_block IEC61131.TON.Maltagem ( time#24s MTON )
+or opened_contact germinacao
+and closed_contact botaoDesliga
+function_block IEC61131.TON.Maltagem ( time#2s MTON )
 out_end coil germinacao
 END_LINE
 
 (* line 0002 *)
 ld opened_contact germinacao
-function_block IEC61131.TON.TON1 ( Time#12s Tempo )
+function_block IEC61131.TON.TON1 ( Time#1s Tempo )
 out_end coil secagem
 END_LINE
 
 (* line 0003 *)
 ld opened_contact secagem
-function_block IEC61131.TON.TON2 ( Time#24s MTP )
+function_block IEC61131.TON.TON2 ( Time#1s MTP )
 out_end coil misturador
 END_LINE
 
@@ -36,7 +38,7 @@ END_LINE
 
 (* line 0007 *)
 ld opened_contact fermentacao
-function_block IEC61131.TON.TON5 ( Time#60s tempo3 )
+function_block IEC61131.TON.TON5 ( Time#6s tempo3 )
 out_end coil repouso
 END_LINE
 
