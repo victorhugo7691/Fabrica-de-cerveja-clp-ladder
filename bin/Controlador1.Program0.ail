@@ -7,15 +7,16 @@ out_end coil germinacao
 END_LINE
 
 (* line 0002 *)
-ld closed_contact germinacao
-and opened_contact germinacao
+ld opened_contact germinacao
+and closed_contact secagem
 function_block IEC61131.TON.TON1 ( Time#1s Tempo )
 out_end coil secagem
 END_LINE
 
 (* line 0003 *)
 ld opened_contact secagem
-out_end coil germinacao
+or closed_contact secagem
+out_end coil secagem
 END_LINE
 
 (* line 0004 *)
