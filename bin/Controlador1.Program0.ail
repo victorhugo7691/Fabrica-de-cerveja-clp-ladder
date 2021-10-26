@@ -4,15 +4,15 @@ or opened_contact germinacao
 and closed_contact botaoDesliga
 and closed_contact secagem
 
-function_block IEC61131.TON.Maltagem ( Time#2s MTON )
+function_block IEC61131.TON.Maltagem ( time#2s MTON )
 out_end coil germinacao
 END_LINE
 
 (* line 0002 *)
 ld opened_contact germinacao
-or opened_contact secagem
+and opened_contact QTD_Dias
+function_block IEC61131.CTU.CTU_1 ( Reset 5 Contador )
 and closed_contact botaoDesliga
-function_block IEC61131.TON.TON1 ( Time#1s Tempo )
 out_end coil secagem
 END_LINE
 
@@ -55,6 +55,7 @@ END_LINE
 (* line 0009 *)
 ld opened_contact engarrafamento
 function_block IEC61131.TON.TON6 ( Time#2s tempo5 )
-out_end coil CervejaEngarrafada
+out_and coil CervejaEngarrafada
+out_end coil Reset
 END_LINE
 
