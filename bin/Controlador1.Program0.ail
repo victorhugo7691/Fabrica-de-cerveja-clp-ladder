@@ -11,6 +11,7 @@ END_LINE
 (* line 0002 *)
 ld opened_contact germinacao
 or opened_contact secagem
+and closed_contact botaoDesliga
 function_block IEC61131.TON.TON1 ( Time#1s Tempo )
 out_end coil secagem
 END_LINE
